@@ -1,10 +1,9 @@
 package com.example.springfling;
 
 public class WreckModel {
-    public String Name;
+    public String name;
 
-    public WreckModel() {}
     public WreckModel(String name) {
-        Name = name;
+        this.name = name;
     }
 }
