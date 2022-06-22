@@ -1,0 +1,12 @@
+type Query {
+    lists: ListsQueries!
+}
+
+type Mutation {
+    lists: ListsMutations!
+}
+
+schema {
+    query: Query
+    mutation: Mutation
+}

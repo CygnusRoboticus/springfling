@@ -1,8 +1,7 @@
-package com.example.springfling.services;
+package com.example.springfling.todos.services;
 
-import com.example.springfling.models.ItemModel;
-import com.example.springfling.repositories.ItemRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.springfling.todos.models.doc.ItemModel;
+import com.example.springfling.todos.repositories.ItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,11 +1,13 @@
-package com.example.springfling.models;
+package com.example.springfling.todos.models.gql;
+
+import com.example.springfling.todos.models.doc.ListModel;
 
 import java.util.Map;
 import java.util.UUID;
 
-public class ListModelGQLInput {
-    public static ListModelGQLInput getCreateListRequest(Map map) {
-        ListModelGQLInput input = new ListModelGQLInput();
+public class ListCreateInput {
+    public static ListCreateInput getCreateListRequest(Map map) {
+        ListCreateInput input = new ListCreateInput();
         input.setName((String) map.get("name"));
         input.setPosition((Integer) map.get("position"));
         return input;
@@ -14,13 +16,21 @@ public class ListModelGQLInput {
     private String name;
     private Integer position;
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public Integer getPosition() { return position; }
-    public void setPosition(Integer position) { this.position = position; }
+    public Integer getPosition() {
+        return position;
+    }
+
+    public void setPosition(Integer position) {
+        this.position = position;
+    }
 
     public ListModel toList(UUID id) {
         var list = new ListModel();

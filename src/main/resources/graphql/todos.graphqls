@@ -1,0 +1,60 @@
+# Queries
+type ListsQueries {
+    lists(positions: [Int!]): [List!]!
+    list(id: ID!): List
+}
+
+# Mutations
+type ListsMutations {
+    create(input: ListCreateInput!): List
+    list(id: ID!): ListMutations!
+}
+
+type ListMutations {
+    createItem(input: ItemCreateInput!): Item
+    update(input: ListUpdateInput!): List
+}
+
+# Entities
+type List {
+    id: ID!
+    name: String
+    position: Int
+    items(positions: [ID!]): [Item!]
+}
+
+type Item {
+    id: ID!
+    list: ListRef!
+    name: String
+    position: Int
+}
+
+# Ref type
+type ListRef {
+    id: ID!
+    list: List
+}
+
+# Inputs
+input ListCreateInput {
+    name: String
+    position: Int
+}
+
+input ListUpdateInput {
+    name: String
+    position: Int
+}
+
+input ItemCreateInput {
+    listId: ID!
+    name: String
+    position: Int
+}
+
+input ItemUpdateInput {
+    listId: ID!
+    name: String
+    position: Int
+}
