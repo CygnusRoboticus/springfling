@@ -48,7 +48,6 @@ input ListUpdateInput {
 }
 
 input ItemCreateInput {
-    listId: ID!
     name: String
     position: Int
 }

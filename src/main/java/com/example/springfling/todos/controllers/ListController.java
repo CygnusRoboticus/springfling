@@ -5,6 +5,7 @@ import com.example.springfling.todos.models.gql.ListCreateInput;
 import com.example.springfling.todos.models.gql.ListUpdateInput;
 import com.example.springfling.todos.repositories.ListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -29,8 +30,8 @@ public class ListController {
     public Object listsMutations() { return new Object(); }
 
     @SchemaMapping(typeName = "ListsQueries", field = "lists")
-    public Iterable<ListModel> listsQuery() {
-        return listRepository.findAll();
+    public Iterable<ListModel> listsQuery(Pageable paging) {
+        return listRepository.findAll(paging);
     }
 
     @SchemaMapping(typeName = "ListsQueries", field = "list")

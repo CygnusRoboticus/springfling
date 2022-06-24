@@ -2,6 +2,7 @@ package com.example.springfling.todos.services;
 
 import com.example.springfling.todos.models.doc.ItemModel;
 import com.example.springfling.todos.repositories.ItemRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,12 +13,12 @@ import java.util.UUID;
 public class ItemService {
     private ItemRepository itemRepository;
 
-    public List<ItemModel> findAll() {
-        return itemRepository.findAll();
+    public Iterable<ItemModel> findAll(Pageable paging) {
+        return itemRepository.findAll(paging);
     }
 
-    public List<ItemModel> findAllByListId(UUID listId) {
-        return itemRepository.findAllByListId(listId);
+    public Iterable<ItemModel> findAllByListId(UUID listId, Pageable paging) {
+        return itemRepository.findAllByListId(listId, paging);
     }
 
     public Optional<ItemModel> findById(UUID id) {

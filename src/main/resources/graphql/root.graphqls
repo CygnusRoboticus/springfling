@@ -6,6 +6,19 @@ type Mutation {
     lists: ListsMutations!
 }
 
+type PageInfo {
+    page: Int!
+    size: Int!
+    sort: [Sort!]
+}
+
+type Sort {
+    field: String!
+    direction: SortDirection!
+}
+
+enum SortDirection { ASC, DESC }
+
 schema {
     query: Query
     mutation: Mutation

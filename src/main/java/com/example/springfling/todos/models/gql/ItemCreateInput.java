@@ -1,30 +1,14 @@
 package com.example.springfling.todos.models.gql;
 
 import com.example.springfling.todos.models.doc.ItemModel;
+import com.example.springfling.todos.models.doc.ListModel;
 
 import java.util.Map;
 import java.util.UUID;
 
 public class ItemCreateInput {
-    public static ItemCreateInput getCreateItemRequest(Map map) {
-        ItemCreateInput input = new ItemCreateInput();
-        input.setListId((UUID) map.get("listId"));
-        input.setName((String) map.get("name"));
-        input.setPosition((Integer) map.get("position"));
-        return input;
-    }
-
-    private UUID listId;
     private String name;
     private Integer position;
-
-    public UUID getListId() {
-        return listId;
-    }
-
-    public void setListId(UUID listId) {
-        this.listId = listId;
-    }
 
     public String getName() {
         return name;
@@ -42,18 +26,12 @@ public class ItemCreateInput {
         this.position = position;
     }
 
-    public ItemModel toItem(UUID id) {
+    public ItemModel toItem(ListModel list, UUID id) {
         var item = new ItemModel();
         item.setId(id);
-        item.setListId(getListId());
+        item.setListId(list.getId());
         item.setName(getName());
         item.setPosition(getPosition());
         return item;
-    }
-
-    public void assign(ItemModel model) {
-        model.setListId(getListId());
-        model.setName(getName());
-        model.setPosition(getPosition());
     }
 }
