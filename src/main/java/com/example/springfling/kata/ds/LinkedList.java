@@ -1,4 +1,4 @@
-package com.example.springfling.kata.ds.linkedlist;
+package com.example.springfling.kata.ds;
 
 import java.util.*;
 

@@ -1,13 +1,15 @@
-package com.example.springfling.kata.ds.linkedlist;
+package com.example.springfling.kata.ds;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import com.example.springfling.kata.ds.LinkedList;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 public class LinkedListTests {
     @Test
-    public void LinkedListTests(){
+    public void LinkedListTests() {
         List<String> singly = new LinkedList<String>();
         assertTrue(singly.isEmpty());
         assertEquals(0, singly.size());
@@ -18,6 +20,6 @@ public class LinkedListTests {
 
         singly.add(1, "CBA");
         assertEquals(2, singly.size());
-        assertArrayEquals(new Object[] { "ABC", "CBA" }, singly.toArray());
+        assertArrayEquals(new Object[]{"ABC", "CBA"}, singly.toArray());
     }
 }
